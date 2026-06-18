@@ -74,7 +74,7 @@ Before running this project, make sure you have:
 Open your terminal or command prompt and run:
 
 ```bash
-git clone https://github.com/Sebatunzi/Alain-s_php_web.git
+git clone https://github.com/Sebatunzi/Alain-s_php_web
 ```
 
 Move into the project directory:

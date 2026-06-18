@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AccessTech – Products</title>
+  <style>
+    /* ===== RESET ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #141c2e;
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 70px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-box {
+  background: #fff;
+  border: 2px solid #ccc;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.logo-icon {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a6bb5;
+}
+
+.logo-sub {
+  font-size: 7px;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-links a.active {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-submit {
+  background: #1a6bb5;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-submit:hover {
+  background: #155a9a;
+}
+
+/* ===========================
+   PRODUCTS HERO
+=========================== */
+.products-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 560px;
+  margin-top: 70px; /* offset for fixed navbar */
+  background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.50);
+}
+
+/* Diagonal bottom fade into dark navy */
+.products-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(to bottom, transparent, #1e2d52);
+  pointer-events: none;
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 40px;
+  max-width: 900px;
+}
+
+.hero-title {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: clamp(36px, 5vw, 68px);
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  text-shadow: 2px 3px 12px rgba(0,0,0,0.45);
+}
+
+.hero-desc {
+  font-size: 17px;
+  color: #dde6f0;
+  line-height: 1.75;
+  max-width: 780px;
+  margin: 0 auto 40px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+}
+
+.btn-browse {
+  display: inline-block;
+  background: #1a6bb5;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 48px;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.btn-browse:hover {
+  background: #155a9a;
+}
+
+
+.catalogue-bar {
+  background: #1e2d52;
+  height: 60px;
+}
+
+
+@media (max-width: 900px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 12px; }
+}
+
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+
+  .hero-content { padding: 0 24px; }
+
+  .products-hero {
+    align-items: flex-end;
+    padding-bottom: 80px;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="products-style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <div class="logo-box">
+        <span class="logo-icon">A↗</span>
+        <span class="logo-sub">Access TECH</span>
+      </div>
+      <span class="brand-name">ACCESSTECH</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Products.html" class="active">Products</a></li>
+      <li><a href="About Us.html">About Us</a></li>
+      <li><a href="Support.html">Support</a></li>
+      <li><a href="Checkout.html">Carts&Checkout</a></li>
+      <li><a href="Join Our Community">Join Our Community</a></li>
+    </ul>
+    <button class="btn-submit">Submit</button>
+  </nav>
+
+  <!-- ===== PRODUCTS HERO ===== -->
+  <section class="products-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Discover the Latest Electronic Devices</h1>
+      <p class="hero-desc">
+        Explore our extensive collection of cutting-edge electronics designed for every
+        seller and buyer to access with ease and confidence.
+      </p>
+      <a href="#catalogue" class="btn-browse">Browse Products</a>
+    </div>
+  </section>
+
+  <!-- ===== CATALOGUE INTRO ===== -->
+  <div class="catalogue-bar" id="catalogue"></div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AccessTech – Our Electronic Store</title>
+  <style>
+    /* ===== RESET ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #141c2e;
+}
+
+/* ===========================
+   STORE SECTION
+=========================== */
+.store-section {
+  background: #1a2540;
+  padding: 0 0 80px;
+}
+
+/* ===== HEADER ===== */
+.store-header {
+  border: 1px solid #3a4a6a;
+  margin: 0 32px;
+  padding: 32px 20px 28px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.store-title {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: clamp(32px, 4vw, 54px);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.store-sub {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: #b0bdd4;
+  letter-spacing: 0.3px;
+}
+
+/* ===========================
+   PRODUCT GRID
+=========================== */
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 0 32px;
+}
+
+/* ===========================
+   PRODUCT CARD
+=========================== */
+.store-card {
+  background: #1a2540;
+  padding-bottom: 28px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image */
+.store-img-wrap {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.store-img-wrap img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.store-card:hover .store-img-wrap img {
+  transform: scale(1.05);
+  filter: brightness(0.75);
+}
+
+/* Hover overlay */
+.store-img-wrap::after {
+  content: 'VIEW PRODUCT';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.store-card:hover .store-img-wrap::after {
+  opacity: 1;
+}
+
+/* Name & Price */
+.store-name {
+  font-size: 15px;
+  font-weight: 400;
+  color: #c8d4e8;
+  margin-bottom: 8px;
+  padding: 0 16px;
+  line-height: 1.4;
+}
+
+.store-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #6b9fe4;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 900px) {
+  .store-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .store-img-wrap img {
+    height: 280px;
+  }
+
+  .store-header {
+    margin: 0 16px;
+    margin-bottom: 32px;
+  }
+
+  .store-grid {
+    margin: 0 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .store-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .store-img-wrap img {
+    height: 240px;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="store-style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ===== STORE SECTION ===== -->
+  <section class="store-section">
+
+    <!-- Header -->
+    <div class="store-header">
+      <h2 class="store-title">Our Electronic Store</h2>
+      <p class="store-sub">Quality Devices at Your Fingertips</p>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="store-grid">
+
+      <!-- Card 1 -->
+      <div class="store-card">
+        <div class="store-img-wrap">
+          <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=700&auto=format&fit=crop" alt="4K Smart TV" />
+        </div>
+        <p class="store-name">4K Ultra HD Smart TV</p>
+        <p class="store-price">1,303,550 frw</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="store-card">
+        <div class="store-img-wrap">
+          <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=700&auto=format&fit=crop" alt="Wireless Headphones" />
+        </div>
+        <p class="store-name">Wireless Noise-Canceling Headphones</p>
+        <p class="store-price">288,550 frw</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="store-card">
+        <div class="store-img-wrap">
+          <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=700&auto=format&fit=crop" alt="Smartphone X200" />
+        </div>
+        <p class="store-name">Smartphone X200</p>
+        <p class="store-price">1,013,550 frw</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="store-card">
+        <div class="store-img-wrap">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700&auto=format&fit=crop" alt="Laptop Pro" />
+        </div>
+        <p class="store-name">Laptop Pro 15" – Core i7</p>
+        <p class="store-price">1,811,05 frw</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="store-card">
+        <div class="store-img-wrap">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&auto=format&fit=crop" alt="Smart Watch" />
+        </div>
+        <p class="store-name">Smart Watch Series 5</p>
+        <p class="store-price">505,050 frw</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="store-card">
+        <div class="store-img-wrap">
+          <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=700&auto=format&fit=crop" alt="Wireless Earbuds" />
+        </div>
+        <p class="store-name">True Wireless Earbuds</p>
+        <p class="store-price">187,050 frw</p>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="store-card">
+        <div class="store-img-wrap">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=700&auto=format&fit=crop" alt="Gaming Mouse" />
+        </div>
+        <p class="store-name">Gaming Mouse RGB Pro</p>
+        <p class="store-price">114,550 frw</p>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="store-card">
+        <div class="store-img-wrap">
+          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=700&auto=format&fit=crop" alt="Instant Camera" />
+        </div>
+        <p class="store-name">Instant Film Camera</p>
+        <p class="store-price">129,050 frw</p>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="store-card">
+        <div class="store-img-wrap">
+          <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=700&auto=format&fit=crop" alt="Bluetooth Speaker" />
+        </div>
+        <p class="store-name">Portable Bluetooth Speaker</p>
+        <p class="store-price">85,550 frw</p>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
+

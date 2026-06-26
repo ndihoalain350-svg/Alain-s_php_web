@@ -36,7 +36,7 @@ $flash = get_flash();
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Dashboard – AccessTech</title>
+  <title>Admin Dashboard – NDIHOTech</title>
   <link rel="stylesheet" href="../assets/style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
